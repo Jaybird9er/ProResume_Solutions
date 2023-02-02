@@ -16,8 +16,6 @@ Dev Plan:
 
 */
 
-// create an object of objects to assign each button its own unique object
-
 const cardData = [
     // numbers are used to indicate what items to pass into the email
     {
@@ -77,7 +75,9 @@ const cardData = [
     },
 ];
 
-const emailAddress = "mel@proresumesolutions.com";
+let buttons = [];
+
+const emailAddress = "melissa@proresumesolutions.com";
 // const testEmail = "Jaybird9er@gmail.com";
 
 function makeCards() { 
@@ -101,24 +101,30 @@ function makeCards() {
         if(card.hasTip) {
             html += `<p>${card.tip}</p>`
         }
-        html += `<button name="button-${count}" class="order-button" onclick=${beginOrder(buttonData)}>Begin Order</button>`;
+        html += `<button name="button-${count}" class="order-button${count}" onclick="location.href='order_form.html';">Begin Order</button>`;        
+        
         html += `</div>`;
         count++;
     });
     return html;
-    function beginOrder(card) {
-        console.log("test")
-        sessionStorage.setItem("card", JSON.stringify(card));
-        return "location.href='order_form.html'";
-    };
 };
+
 document.querySelector(".primary-services").innerHTML = makeCards();
-//document.querySelector(".cover-letter")
+// need to insert Other Services div by adding parent element
+//document.querySelector(".cover-letter")]
+
+// adds event to add each object's data object to session storage
+for (let i = 0; i < cardData.length; i++) {
+    document.querySelector(".order-button" + i.toString()).addEventListener('click', (e) => {
+        e.target = beginOrder(cardData[i])
+    });
+}
 
 // Used to auto populate email message
-
-
-// });
+function beginOrder(card) {
+    sessionStorage.clear();
+    sessionStorage.setItem("card", JSON.stringify(card));
+};
 
 // used to generate number to append to order ID
 /* function orderID() {
