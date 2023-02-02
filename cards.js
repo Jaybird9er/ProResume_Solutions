@@ -16,17 +16,64 @@ Dev Plan:
 
 */
 
+// create an object of objects to assign each button its own unique object
+
 const cardData = [
+    // numbers are used to indicate what items to pass into the email
     {
         className: "starter",
-        title: "Starter",
-        cost: "$119",
+        title: "STARTER PACKAGE", // 1
+        cost: "$119", // 2
         description: "Resume",
         popular: false,
         hasList: true,
-        serviceList: ["abc", "def", "ghi"],
-        mailSubject: "Request%20for%20Starter%20Service", // Request for Starter Service
-        mailBody: "Please%20enter%20your%20information%20below%20help%20us%20get%20up%20to%20speed%3A%0D%0AName%3A%20%0D%0ACurrent%20Company%3A%20%0D%0ACurrent%20Position%3A%20%0D%0A%0D%0A__________________________________________________________",
+        serviceList: ["A professionally written resume", "Keyword Optimization for Applicant Tracking Systems", "A brand new format"], // 6
+        hasTip: false,
+        tip: "",
+    },
+    {
+        className: "premium",
+        title: "PREMIUM PACKAGE", // 1
+        cost: "$159", // 2
+        description: "Resume + Cover Letter",
+        popular: true,
+        hasList: true,
+        serviceList: ["Everything in the Starter Package", "Plus a customizable cover letter (valued at $75)"], // 6
+        hasTip: true,
+        tip: "Did you know that 60% of employers only read a resume accompanied by a cover letter?"
+    },
+    {
+        className: "vip",
+        title: "VIP PACKAGE", // 1
+        cost: "$199", // 2
+        description: "Resume + Cover Letter + LinkedIn Revamp + Interview Guidebook",
+        popular: false,
+        hasList: true,
+        serviceList: ["Everything in the Premium Package", "Plus a LinkedIn Revamp (valued at $50)", "Plus an Interview Guidebook with 100 practice questions "], // 6
+        hasTip: false,
+        tip: "",
+    },
+    {
+        className: "cover-letter",
+        title: "CUSTOMIZEABLE COVER LETTER", // 1
+        cost: "$75", // 2
+        description: "",
+        popular: false,
+        hasList: false,
+        serviceList: [], // 6
+        hasTip: false,
+        tip: "",
+    },
+    {
+        className: "linkedin",
+        title: "LINKEDIN REVAMP", // 1
+        cost: "$50", // 2
+        description: "",
+        popular: false,
+        hasList: false,
+        serviceList: [], // 6
+        hasTip: false,
+        tip: "",
     },
 ];
 
@@ -35,6 +82,8 @@ const emailAddress = "mel@proresumesolutions.com";
 
 function makeCards() { 
     let html = "";
+    let count = 0;
+
     cardData.forEach(card => {
         html += `<div class=${card.className}>`;
             html += `<h3 class="title">${card.title}</h3>`;
@@ -43,23 +92,33 @@ function makeCards() {
         html += `</div>`;
         html += `<div class="services">`;
         if(card.hasList) {
-            html += `<ul class="services">`;
+            html += `<ul class="list">Includes:`;
             card.serviceList.forEach(item => {
                 html += `<li>${item}</li>`;
             });
             html += `</ul>`;
         }
-        html += `<button class="button" onclick=${beginOrder(card.title)}>Begin Order</button>`;
+        if(card.hasTip) {
+            html += `<p>${card.tip}</p>`
+        }
+        html += `<button name="button-${count}" class="order-button" onclick=${beginOrder(buttonData)}>Begin Order</button>`;
         html += `</div>`;
+        count++;
     });
     return html;
+    function beginOrder(card) {
+        console.log("test")
+        sessionStorage.setItem("card", JSON.stringify(card));
+        return "location.href='order_form.html'";
+    };
 };
+document.querySelector(".primary-services").innerHTML = makeCards();
+//document.querySelector(".cover-letter")
 
 // Used to auto populate email message
-function beginOrder(title) {
-    sessionStorage.setItem("title", title);
-    return "location.href='order_form.html'";
-};
+
+
+// });
 
 // used to generate number to append to order ID
 /* function orderID() {
@@ -67,5 +126,3 @@ function beginOrder(title) {
     numberID += 1;
     return numberID.toString().padStart(10, 0);
 } */
-
-document.querySelector(".primary-services").innerHTML = makeCards();
