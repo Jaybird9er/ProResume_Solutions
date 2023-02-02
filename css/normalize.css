@@ -44,6 +44,12 @@ nav,
 section,
 summary {
   display: block;
+  
+}
+
+.req {
+  color: red;
+  font-weight: 600;
 }
 
 /**

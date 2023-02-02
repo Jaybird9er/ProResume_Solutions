@@ -35,6 +35,21 @@
     <div class="container">
       <div class="row">
         <div class="one-half column order-form" style="margin-top: 25%">
+            <h4>Please fill out the form below to begin your order.</h4>
+            <p>We will be in touch shortly.<br><span class="req">*Required</span></p>
+            <form enctype="text/plain" class="form">
+                <label for="name"><span class="req">*</span>Name:</label>
+                <input type="text" name="Name" class="name" required}><br>
+                <label for="current-position">Current Position:</label>
+                <input type="text" name="Current Position" placeholder="Sales Representative" class="position"><br>
+                <label for="target-position">Target Position:</label>
+                <input type="text" name="Target Position" placeholder="Sales Manager" class="target"><br>
+                <label for="questions">Have any questions?</label>
+                <input type="text" name="Questions" class="questions"><br>
+                <button value="Send" class="send"}>Start</button>
+                <input type="reset" value="Reset">
+            </form><br>
+            <button class="button" onclick="location.href='index.html'">Return to Main</button>
         </div>
       </div>
     </div>
