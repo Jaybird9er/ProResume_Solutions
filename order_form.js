@@ -39,7 +39,12 @@ function sendButton() {
                 }
             }
             i++;
-        }        
+        }
+        mailBody += `%0D%0A%0D%0A`;
+        for(let i = 0; i < 25; i++){mailBody += "%5F"};
+        mailBody += `%0D%0A%0D%0A`;
+        mailBody += `Proresume Solutions Team`;
+        
         window.location.href = `mailto:${mailTo + mailBody}`;
     } else {
         document.querySelector(".name").style.backgroundColor = '#f5babb';

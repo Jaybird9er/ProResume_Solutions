@@ -53,7 +53,7 @@ const cardData = [
     },
     {
         className: "cover-letter",
-        title: "CUSTOMIZEABLE COVER LETTER", // 1
+        title: "COVER LETTER", // 1
         cost: "$75", // 2
         description: "",
         popular: false,
@@ -89,20 +89,21 @@ function makeCards() {
             html += `<h3 class="title">${card.title}</h3>`;
             html += `<h2 class="cost">${card.cost}</h2>`;
             html += `<h4 class="description">${card.description}</h4>`;
-        html += `</div>`;
-        html += `<div class="services">`;
-        if(card.hasList) {
-            html += `<ul class="list">Includes:`;
-            card.serviceList.forEach(item => {
-                html += `<li>${item}</li>`;
-            });
-            html += `</ul>`;
-        }
-        if(card.hasTip) {
-            html += `<p>${card.tip}</p>`
-        }
-        html += `<button name="button-${count}" class="order-button${count}" onclick="location.href='order_form.html';">Begin Order</button>`;        
-        
+            html += `<div class="services">`;
+            // if false, then only button appears in this div
+            if(card.hasList) {
+                html += `<ul class="list">Includes:`;
+                card.serviceList.forEach(item => {
+                    html += `<li>${item}</li>`;
+                });
+                html += `</ul>`;
+            }
+            if(card.hasTip) {
+                html += `<p class="tip">${card.tip}</p>`
+            }
+            html += `<button name="button-${count}" class="order-button${count}" onclick="location.href='order_form.html';">Begin Order</button>`;        
+            
+            html += `</div>`;
         html += `</div>`;
         count++;
     });
@@ -110,8 +111,17 @@ function makeCards() {
 };
 
 document.querySelector(".primary-services").innerHTML = makeCards();
-// need to insert Other Services div by adding parent element
-//document.querySelector(".cover-letter")]
+
+// create Other Services Banner
+const bannerDiv = document.createElement("div");
+const targetDiv = document.querySelector('.cover-letter');
+targetDiv.parentNode.insertBefore(bannerDiv, targetDiv);
+bannerDiv.setAttribute('class', 'services-banner');
+
+const headerNode  = document.createElement("h2");
+bannerDiv.appendChild(headerNode);
+headerNode.setAttribute('class', 'banner-header')
+document.querySelector('.banner-header').innerHTML = "OTHER SERVICES";
 
 // adds event to add each object's data object to session storage
 for (let i = 0; i < cardData.length; i++) {
