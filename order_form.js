@@ -15,6 +15,7 @@ function sendButton() {
     if(name !== "") {
         let position = document.querySelector(".position").value;
         let target = document.querySelector(".target").value;
+        // need to modfiy to get add line breaks to questions or allow for multiple questions to 
         let questions = document.querySelector(".questions").value;
         
         let mailBody = `body=Name%3A%20${name}%0D%0ACurrent%20Position%3A%20${position}%0D%0ATarget%20Position%3A%20${target}%0D%0A%0D%0AQuestions%3A%0D%0A%0D%0A${questions}%0D%0A%0D%0A`; 
@@ -44,7 +45,6 @@ function sendButton() {
         for(let i = 0; i < 25; i++){mailBody += "%5F"};
         mailBody += `%0D%0A%0D%0A`;
         mailBody += `Proresume Solutions Team`;
-        
         window.location.href = `mailto:${mailTo + mailBody}`;
     } else {
         document.querySelector(".name").style.backgroundColor = '#f5babb';

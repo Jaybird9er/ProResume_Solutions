@@ -16,7 +16,7 @@ Dev Plan:
 
 */
 
-const cardData = [
+const primaryCards = [
     // numbers are used to indicate what items to pass into the email
     {
         className: "starter",
@@ -25,7 +25,7 @@ const cardData = [
         description: "Resume",
         popular: false,
         hasList: true,
-        serviceList: ["A professionally written resume", "Keyword Optimization for Applicant Tracking Systems", "A brand new format"], // 6
+        serviceList: ["A professionally written resume", "Keyword optimization for applicant tracking systems", "A brand new format"], // 6
         hasTip: false,
         tip: "",
     },
@@ -33,7 +33,7 @@ const cardData = [
         className: "premium",
         title: "PREMIUM PACKAGE", // 1
         cost: "$159", // 2
-        description: "Resume + Cover Letter",
+        description: "Resume <br>+ Cover Letter",
         popular: true,
         hasList: true,
         serviceList: ["Everything in the Starter Package", "Plus a customizable cover letter (valued at $75)"], // 6
@@ -44,13 +44,16 @@ const cardData = [
         className: "vip",
         title: "VIP PACKAGE", // 1
         cost: "$199", // 2
-        description: "Resume + Cover Letter + LinkedIn Revamp + Interview Guidebook",
+        description: `Resume <br>+ Cover Letter <br>+ LinkedIn Revamp <br>+ Interview Guidebook`,
         popular: false,
         hasList: true,
         serviceList: ["Everything in the Premium Package", "Plus a LinkedIn Revamp (valued at $50)", "Plus an Interview Guidebook with 100 practice questions "], // 6
         hasTip: false,
         tip: "",
     },
+];
+
+const secondaryCards =[
     {
         className: "cover-letter",
         title: "COVER LETTER", // 1
@@ -75,28 +78,27 @@ const cardData = [
     },
 ];
 
-let buttons = [];
-
 const emailAddress = "melissa@proresumesolutions.com";
-// const testEmail = "Jaybird9er@gmail.com";
 
-function makeCards() { 
+function makeCards(cardsArray) { 
     let html = "";
     let count = 0;
 
-    cardData.forEach(card => {
-        html += `<div class=${card.className}>`;
+    cardsArray.forEach(card => {
+        html += `<div class="${card.className} card">`;
             html += `<h3 class="title">${card.title}</h3>`;
             html += `<h2 class="cost">${card.cost}</h2>`;
             html += `<h4 class="description">${card.description}</h4>`;
             html += `<div class="services">`;
             // if false, then only button appears in this div
             if(card.hasList) {
-                html += `<ul class="list">Includes:`;
+                html += `<div class="list"`
+                html += `<ul><label class="list-label">Includes:</label>`;
                 card.serviceList.forEach(item => {
                     html += `<li>${item}</li>`;
                 });
                 html += `</ul>`;
+                html += `</div>`;
             }
             if(card.hasTip) {
                 html += `<p class="tip">${card.tip}</p>`
@@ -110,23 +112,26 @@ function makeCards() {
     return html;
 };
 
-document.querySelector(".primary-services").innerHTML = makeCards();
+document.querySelector(".primary-services").innerHTML = makeCards(primaryCards);
 
 // create Other Services Banner
-const bannerDiv = document.createElement("div");
-const targetDiv = document.querySelector('.cover-letter');
-targetDiv.parentNode.insertBefore(bannerDiv, targetDiv);
+const bannerDiv = document.createElement("div"); // **
+const rowDiv = document.querySelector('.container'); // **
 bannerDiv.setAttribute('class', 'services-banner');
+
+rowDiv.appendChild(bannerDiv);
+
 
 const headerNode  = document.createElement("h2");
 bannerDiv.appendChild(headerNode);
 headerNode.setAttribute('class', 'banner-header')
-document.querySelector('.banner-header').innerHTML = "OTHER SERVICES";
+document.querySelector('.banner-header').innerHTML += "OTHER SERVICES";
+document.querySelector(".services-banner").innerHTML += makeCards(secondaryCards);
 
 // adds event to add each object's data object to session storage
-for (let i = 0; i < cardData.length; i++) {
+for (let i = 0; i < primaryCards.length; i++) {
     document.querySelector(".order-button" + i.toString()).addEventListener('click', (e) => {
-        e.target = beginOrder(cardData[i])
+        e.target = beginOrder(primaryCards[i])
     });
 }
 
