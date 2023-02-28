@@ -25,6 +25,17 @@
 - Media Queries
 */
 
+:root {
+  --bg-color: #151826;
+  --brand-color: #03989E;
+  --body-color: #FFF;
+  --blurb-color: lightgray;
+  --footer-color: #546f70;
+  --tip-color: lightgray;
+  --shadow: #888;
+  --light-text: #FFF;
+  --dark-text: #151826;
+}
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -437,6 +448,10 @@ there.
   .card {
     max-width: 32%;
   }
+
+  .cover-letter, .linkedin {
+    max-width: 45%;
+  }
   
   .blurb {
     padding-bottom: 25px;
@@ -457,6 +472,10 @@ there.
     margin-bottom: 20px;
     text-align: center;
   }
+
+  .trust-widget {
+    padding: 20px 0 0 0;
+  }
 }
 
 /* Larger than desktop */
@@ -472,33 +491,34 @@ there.
 /* Custom Styling for Specific Elements */
 
 /* set border around all elements */
-* {
-  /* border: 1px solid red; */
-}
+/* * {
+  border: 1px solid red;
+} */
 
 header {
   padding: 25px 10px 10px;
-  color: #fff;
-  background-color: #000;
+  color: var(--body-color);
+  background-color: var(--bg-color);
   text-align: center;
 }
 
 .title-1 {
-  color: red;
+  color: var(--brand-color);
 }
 
 .title-1, .title-2, .cost, .banner-header {
   font-family: 'Arial Black', 'Arial Bold', 'Gadget', sans-serif;
 }
-.title {
+.title, .tag {
   font-family: 'Arial Bold', 'Gadget', sans-serif;
   font-weight: 800;
+  color: var(--brand-color);
 }
 
 .card {
   text-align: center;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--bg-color);
+  color: var(--light-text);
   padding: 25px 0 0 0;
   height: fit-content;
 }
@@ -509,13 +529,13 @@ header {
 } */
 
 .order-form {
-  background-color: #fff;
-  color: #000;
+  background-color: var(--body-color);
+  color: var(--dark-text);
   padding: 25px 10px;
 }
 
 .order-form, .card {
-  filter: drop-shadow(10px 10px 12px #888);
+  filter: drop-shadow(10px 10px 12px var(--shadow));
   margin: 0 0px 25px 0px;
   border-radius: 10px;
 
@@ -532,18 +552,20 @@ header {
 }
 .list-label {
   margin-bottom: 1rem;
+  padding-left: 1rem;
 }
 
 .tip {
   margin: 25px 0 10px;
   padding: 15px;
-  background-color: lightgray;
+  background-color: var(--tip-color);
+  color: var(--dark-text);
   border-radius: 10px;
 }
 
 .blurb {
   text-align: center;
-  background-color: lightgray;
+  background-color: var(--blurb-color);
   padding: 25px 15px 15px;
   margin: 0;
   font-size: 2.5rem;
@@ -557,6 +579,8 @@ header {
 
 .tag {
   padding-top: 25px;
+  color: var(--dark-text);
+
 }
 
 .steps {
@@ -567,8 +591,8 @@ header {
 .services {
   padding: 20px 10px;
   text-align: center;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--body-color);
+  color: var(--dark-text);
   border-radius: 0 0 10px 10px;
 }
 
@@ -585,8 +609,8 @@ button {
 
 .banner-header {
   text-align: center;
-  background-color: #000;
-  color: #FFF;
+  background-color: var(--bg-color);
+  color: var(--light-text);
   padding: 15px;
   border-radius: 10px;
 }
@@ -595,7 +619,8 @@ footer {
   text-align: center;
   margin: 15px 0 0;
   padding: 40px 0 10px;
-  background-color: grey;
+  background-color: var(--footer-color);
+  color: var(--light-text);
 }
 
 .questions {
@@ -604,8 +629,8 @@ footer {
 }
 
 button, .button {
-  color: #FFF;
-  background-color: #000;
+  color: var(--light-text);
+  background-color: var(--bg-color);
 }
 
 .button:hover,
@@ -618,6 +643,11 @@ button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
-  color: red;
-  border-color: red;
+  color: var(--brand-color);
+  border-color: var(--brand-color);
   outline: 0; }
+
+
+.trust-widget {
+  padding-bottom: 20px;
+}
