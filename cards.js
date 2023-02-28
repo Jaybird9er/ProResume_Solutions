@@ -92,16 +92,17 @@ function makeCards(cardsArray) {
             html += `<div class="services">`;
             // if false, then only button appears in this div
             if(card.hasList) {
-                html += `<div class="list"`
+                
+                html += `<div class="list">`
                 html += `<ul><label class="list-label">Includes:</label>`;
                 card.serviceList.forEach(item => {
                     html += `<li>${item}</li>`;
                 });
                 html += `</ul>`;
+                if(card.hasTip) {
+                    html += `<p class="tip">${card.tip}</p>`
+                }
                 html += `</div>`;
-            }
-            if(card.hasTip) {
-                html += `<p class="tip">${card.tip}</p>`
             }
             html += `<button name="button-${count}" class="order-button${count}" onclick="location.href='order_form.html';">Begin Order</button>`;        
             
@@ -115,16 +116,18 @@ function makeCards(cardsArray) {
 document.querySelector(".primary-services").innerHTML = makeCards(primaryCards);
 
 // create Other Services Banner
-const bannerDiv = document.createElement("div"); // **
-const rowDiv = document.querySelector('.container'); // **
+const bannerDiv = document.createElement("div");
+const rowDiv = document.querySelector('.container');
 bannerDiv.setAttribute('class', 'services-banner');
 
-rowDiv.appendChild(bannerDiv);
 
 
 const headerNode  = document.createElement("h2");
-bannerDiv.appendChild(headerNode);
+rowDiv.appendChild(headerNode);
+rowDiv.appendChild(bannerDiv);
 headerNode.setAttribute('class', 'banner-header')
+
+
 document.querySelector('.banner-header').innerHTML += "OTHER SERVICES";
 document.querySelector(".services-banner").innerHTML += makeCards(secondaryCards);
 

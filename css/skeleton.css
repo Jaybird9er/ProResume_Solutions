@@ -31,7 +31,7 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box; }
@@ -51,7 +51,7 @@
 /* For devices larger than 550px */
 @media (min-width: 550px) {
   .container {
-    width: 80%; }
+    width: 95%; }
   .column,
   .columns {
     margin-left: 4%; }
@@ -303,8 +303,19 @@ ol ul {
   font-size: 90%; }
 li {
   margin-bottom: 1rem;
-  padding-left: 15px;
-  list-style-type: disc inside; }
+  padding-left: 0;
+  list-style-type: disc inside; 
+  text-indent: -1.25em; 
+}
+
+
+/* adjust list dots position */
+ul {
+  padding-left: 20px;
+}
+ul li {
+  padding-left: 10px;
+}
 
 
 /* Code
@@ -418,10 +429,41 @@ there.
     display: flex;
     justify-content: space-between;
   }
+  .services-banner {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .card {
+    max-width: 32%;
+  }
+  
+  .blurb {
+    padding-bottom: 25px;
+  }
+
+  .blurb-text {
+    padding: 25px 15% 0px;
+  }
+  
+  .steps {
+    margin: auto;
+    width: 55%;
+  
+  }
+  .title {
+    margin: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 }
 
 /* Larger than desktop */
-@media (min-width: 1000px) {}
+@media (min-width: 1000px) {
+  .container {
+    width: 90%; }
+}
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
@@ -458,7 +500,13 @@ header {
   background-color: #000;
   color: #fff;
   padding: 25px 0 0 0;
+  height: fit-content;
 }
+/* @media (min-width: 750px) {
+  .card {
+    padding: 25px 10px;
+  }
+} */
 
 .order-form {
   background-color: #fff;
@@ -480,12 +528,13 @@ header {
 
 .list {
   text-align: left;
+  padding: 0 10px;
 }
 .list-label {
   margin-bottom: 1rem;
 }
 
-.tip, .blurb {
+.tip {
   margin: 25px 0 10px;
   padding: 15px;
   background-color: lightgray;
@@ -493,8 +542,26 @@ header {
 }
 
 .blurb {
-  margin: 10px 0;
   text-align: center;
+  background-color: lightgray;
+  padding: 25px 15px 15px;
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+@media (min-width: 750px) {
+  .blurb {
+    padding-bottom: 35px;
+  }
+}
+
+.tag {
+  padding-top: 25px;
+}
+
+.steps {
+  text-align: left;
+  font-size: 2.125rem;
 }
 
 .services {
@@ -514,7 +581,8 @@ button {
   margin-top: 5%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
-}
+} 
+
 .banner-header {
   text-align: center;
   background-color: #000;
@@ -526,7 +594,7 @@ button {
 footer {
   text-align: center;
   margin: 15px 0 0;
-  padding: 20px 0 10px;
+  padding: 40px 0 10px;
   background-color: grey;
 }
 
