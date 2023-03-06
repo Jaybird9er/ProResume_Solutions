@@ -98,6 +98,9 @@ function makeCards(cardsArray) {
 
     cardsArray.forEach(card => {
         html += `<div class="${card.className} card">`;
+            if(card.popular) {
+                html += `<div class="popular"><img src="images/popular.png" alt="star" class="star"></div>`
+            }
             html += `<h3 class="title">${card.title}</h3>`;
             html += `<h2 class="cost">${card.cost}</h2>`;
             html += `<h4 class="description">${card.description}</h4>`;

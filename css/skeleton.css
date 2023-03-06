@@ -451,6 +451,10 @@ there.
     max-width: 32%;
   }
 
+  .banner-header {
+    margin: 20px 0;
+  }
+
   .cover-letter, .linkedin, .resume-update {
     max-width: 32%;
   }
@@ -485,6 +489,14 @@ there.
   .contact {
     padding-top: 0;
   }
+  .premium.card {
+    /* -100px */
+    margin-top: -90px; 
+  }
+  
+  .row {
+    padding-top: 30px;
+  }
 
 }
 
@@ -492,6 +504,10 @@ there.
 @media (min-width: 1000px) {
   .container {
     width: 90%; }
+  
+  .services-banner {
+    justify-content: space-around;
+  }
 }
 
 /* Larger than Desktop HD */
@@ -662,6 +678,15 @@ footer {
 button, .button {
   color: var(--light-text);
   background-color: var(--bg-color);
+}
+
+.popular {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.star {
+  height: 3.5em;
 }
 
 .button:hover,
