@@ -170,9 +170,9 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: var(--brand-color) }
 a:hover {
-  color: #0FA0CE; }
+  color: var(--footer-color); }
 
 
 /* Buttons
@@ -399,10 +399,12 @@ form {
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 hr {
-  margin-top: 3rem;
-  margin-bottom: 3.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   border-width: 0;
-  border-top: 1px solid #E1E1E1; }
+  border: 5px solid var(--footer-color);
+  border-radius: 5px;
+ }
 
 
 /* Clearing
@@ -442,15 +444,15 @@ there.
   }
   .services-banner {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
 
   .card {
     max-width: 32%;
   }
 
-  .cover-letter, .linkedin {
-    max-width: 45%;
+  .cover-letter, .linkedin, .resume-update {
+    max-width: 32%;
   }
   
   .blurb {
@@ -464,8 +466,11 @@ there.
   .steps {
     margin: auto;
     width: 55%;
-  
   }
+  .process {
+    width: 80%;
+  }
+
   .title {
     margin: 20px;
     margin-top: 0;
@@ -476,6 +481,11 @@ there.
   .trust-widget {
     padding: 20px 0 0 0;
   }
+  
+  .contact {
+    padding-top: 0;
+  }
+
 }
 
 /* Larger than desktop */
@@ -506,10 +516,11 @@ header {
   color: var(--brand-color);
 }
 
-.title-1, .title-2, .cost, .banner-header {
+.title-1, .title-2, .cost, .banner-header, .tag {
   font-family: 'Arial Black', 'Arial Bold', 'Gadget', sans-serif;
+  font-weight: 800;
 }
-.title, .tag {
+.title {
   font-family: 'Arial Bold', 'Gadget', sans-serif;
   font-weight: 800;
   color: var(--brand-color);
@@ -563,7 +574,7 @@ header {
   border-radius: 10px;
 }
 
-.blurb {
+.blurb, .explainer {
   text-align: center;
   background-color: var(--blurb-color);
   padding: 25px 15px 15px;
@@ -586,6 +597,21 @@ header {
 .steps {
   text-align: left;
   font-size: 2.125rem;
+  list-style-type: none;
+  text-align: center;
+}
+
+.step {
+  font-weight: bold;
+}
+
+.process {
+  text-align: left;
+  padding-left: 3.75em;
+}
+
+.process-step {
+  text-indent: -3.75em;
 }
 
 .services {
@@ -617,7 +643,7 @@ button {
 
 footer {
   text-align: center;
-  margin: 15px 0 0;
+  margin: 0;
   padding: 40px 0 10px;
   background-color: var(--footer-color);
   color: var(--light-text);
@@ -626,6 +652,11 @@ footer {
 .questions {
   resize: vertical;
   min-height: 65px;
+}
+
+.explainer {
+  background-color: var(--blurb-color);
+  margin-top: 25px;
 }
 
 button, .button {

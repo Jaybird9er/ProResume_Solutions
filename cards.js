@@ -1,3 +1,4 @@
+
 /* 
 Dev Plan:
 
@@ -69,6 +70,17 @@ const secondaryCards =[
         className: "linkedin",
         title: "LINKEDIN REVAMP", // 1
         cost: "$50", // 2
+        description: "",
+        popular: false,
+        hasList: false,
+        serviceList: [], // 6
+        hasTip: false,
+        tip: "",
+    },
+    {
+        className: "resume-update",
+        title: "RESUME UPDATE", // 1
+        cost: "$35", // 2
         description: "",
         popular: false,
         hasList: false,
