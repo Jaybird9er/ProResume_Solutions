@@ -153,7 +153,14 @@ for (let i = 0; i < primaryCards.length; i++) {
     });
 }
 
-// Used to auto populate email message
+// append 
+let resumeCard = document.querySelector('div.resume-update .cost');
+const resumeNote = document.createElement("span");
+resumeNote.setAttribute('class', 'resume-note');
+resumeNote.innerHTML += "(For returning customers only)"
+resumeCard.after(resumeNote);
+
+// used to auto populate email message
 function beginOrder(card) {
     sessionStorage.clear();
     sessionStorage.setItem("card", JSON.stringify(card));
