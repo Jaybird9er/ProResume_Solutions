@@ -1,4 +1,3 @@
-
 /* 
 Dev Plan:
 
@@ -29,6 +28,7 @@ const primaryCards = [
         serviceList: ["A professionally written resume", "Keyword optimization for applicant tracking systems", "A brand new format"], // 6
         hasTip: false,
         tip: "",
+        payURL: "https://proresume-solutions.myhelcim.com/hosted/?token=6cc56feb70ec19b6d6c3bc&amount=119.00&amountHash=c80f658aaf19ed52366ed88adf0da5b550b438ee6ce7677e493fd6856082ec5e",
     },
     {
         className: "premium",
@@ -39,7 +39,8 @@ const primaryCards = [
         hasList: true,
         serviceList: ["Everything in the Starter Package", "Plus a customizable cover letter (valued at $75)"], // 6
         hasTip: true,
-        tip: "Did you know that 60% of employers only read a resume accompanied by a cover letter?"
+        tip: "Did you know that 60% of employers only read a resume accompanied by a cover letter?",
+        payURL: "https://proresume-solutions.myhelcim.com/hosted/?token=5953af048d6c9bdacb7c2b&amount=159.00&amountHash=0075c7719b322b9f0df319ff2c5b5231ec46f6f8b13b7b6cb22cc2ad39196a29",
     },
     {
         className: "vip",
@@ -51,6 +52,7 @@ const primaryCards = [
         serviceList: ["Everything in the Premium Package", "Plus a LinkedIn Revamp (valued at $50)", "Plus an Interview Guidebook with 100 practice questions "], // 6
         hasTip: false,
         tip: "",
+        payURL: "https://proresume-solutions.myhelcim.com/hosted/?token=58a76e3ec4875b5d59db8a&amount=199.00&amountHash=a96f0e10b978be8e156dede8426efb408521c2de37addde5e6bb2469fa41e697",
     },
 ];
 
@@ -65,6 +67,7 @@ const secondaryCards =[
         serviceList: [], // 6
         hasTip: false,
         tip: "",
+        payURL: "https://proresume-solutions.myhelcim.com/hosted/?token=2b07ebce609c2b88dbfc4c&amount=75.00&amountHash=92c86945d382f6013d386057744f266e207c57b1291e131f119c870868744ee2",
     },
     {
         className: "linkedin",
@@ -76,6 +79,7 @@ const secondaryCards =[
         serviceList: [], // 6
         hasTip: false,
         tip: "",
+        payURL: "https://proresume-solutions.myhelcim.com/hosted/?token=4d56fb035e0a7222725d0f&amount=50.00&amountHash=4003d271784e48dd7b0ee6dbe551a5a1aa7508abb5ca0c04e600451878735e0e",
     },
     {
         className: "resume-update",
@@ -87,6 +91,7 @@ const secondaryCards =[
         serviceList: [], // 6
         hasTip: false,
         tip: "",
+        payURL: "https://proresume-solutions.myhelcim.com/hosted/?token=2942b14889d629e00c5213&amount=35.00&amountHash=66d7b6341009d0199db4909bcf7d58e830e0b24bd5db2de744a189c5eebdfcf3",
     },
 ];
 
@@ -119,7 +124,7 @@ function makeCards(cardsArray) {
                 }
                 html += `</div>`;
             }
-            html += `<button name="button-${count}" class="order-button${count}" onclick="location.href='order_form.html';">Begin Order</button>`;        
+            html += `<button name="button-${count}" class="order-button${count}" onclick="location.href='${card.payURL}';">Begin Order</button>`;        
             
             html += `</div>`;
         html += `</div>`;
