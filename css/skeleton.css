@@ -473,6 +473,10 @@ there.
     margin: auto;
     width: 55%;
   }
+  .step-3 {
+    margin-bottom: 25px;
+  }
+
   .process {
     width: 80%;
   }
@@ -617,6 +621,7 @@ header {
   font-size: 2.125rem;
   list-style-type: none;
   text-align: center;
+  padding-bottom: 20px;
 }
 
 .step {

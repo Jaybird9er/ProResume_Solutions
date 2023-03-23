@@ -171,6 +171,7 @@ function beginOrder(card) {
     sessionStorage.setItem("card", JSON.stringify(card));
 };
 
+
 // used to generate number to append to order ID
 /* function orderID() {
     let numberID = 0;
