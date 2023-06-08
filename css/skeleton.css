@@ -539,10 +539,19 @@ header {
   color: var(--brand-color);
 }
 
-.title-1, .title-2, .cost, .banner-header, .tag {
+.title-1, .title-2, .cost, .new-cost, .banner-header, .tag {
   font-family: 'Arial Black', 'Arial Bold', 'Gadget', sans-serif;
   font-weight: 800;
 }
+
+.cost {
+  text-decoration: line-through;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--blurb-color);
+  font-size: 3rem;
+}
+
 .title {
   font-family: 'Arial Bold', 'Gadget', sans-serif;
   font-weight: 800;

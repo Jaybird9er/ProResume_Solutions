@@ -22,6 +22,7 @@ const primaryCards = [
         className: "starter",
         title: "STARTER PACKAGE", // 1
         cost: "$119", // 2
+        newCost: "$99", // 2
         description: "Resume",
         popular: false,
         hasList: true,
@@ -34,6 +35,7 @@ const primaryCards = [
         className: "premium",
         title: "PREMIUM PACKAGE", // 1
         cost: "$159", // 2
+        newCost: "$139", // 2
         description: "Resume <br>+ Cover Letter",
         popular: true,
         hasList: true,
@@ -46,6 +48,7 @@ const primaryCards = [
         className: "vip",
         title: "VIP PACKAGE", // 1
         cost: "$199", // 2
+        newCost: "$179", // 2
         description: `Resume <br>+ Cover Letter <br>+ LinkedIn Revamp <br>+ Interview Guidebook`,
         popular: false,
         hasList: true,
@@ -60,7 +63,8 @@ const secondaryCards =[
     {
         className: "cover-letter",
         title: "COVER LETTER", // 1
-        cost: "$75", // 2
+        newCost: "$75", // 2
+        cost: "", // 2
         description: "",
         popular: false,
         hasList: false,
@@ -72,7 +76,8 @@ const secondaryCards =[
     {
         className: "linkedin",
         title: "LINKEDIN REVAMP", // 1
-        cost: "$50", // 2
+        newCost: "$50", // 2
+        cost: "", // 2
         description: "",
         popular: false,
         hasList: false,
@@ -84,7 +89,8 @@ const secondaryCards =[
     {
         className: "resume-update",
         title: "RESUME UPDATE", // 1
-        cost: "$35", // 2
+        newCost: "$35", // 2
+        cost: "", // 2
         description: "",
         popular: false,
         hasList: false,
@@ -107,7 +113,8 @@ function makeCards(cardsArray) {
                 html += `<div class="popular"><img src="images/popular.png" alt="star" class="star"></div>`
             }
             html += `<h3 class="title">${card.title}</h3>`;
-            html += `<h2 class="cost">${card.cost}</h2>`;
+            html += `<h2 class="new-cost">${card.newCost}</h2>`;
+            html += `<h3 class="cost">${card.cost}</h3>`;
             html += `<h4 class="description">${card.description}</h4>`;
             html += `<div class="services">`;
             // if false, then only button appears in this div
